@@ -1,0 +1,340 @@
+﻿<%@ Master Language="C#" CodeFile="MainPage.master.cs" Inherits="MainPage" Debug="false"  %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<link rel="Stylesheet" href="Css/StyleSheet.css" type="text/css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <title>Index</title>
+    <asp:ContentPlaceHolder id="HeadContent" runat="server">
+    </asp:ContentPlaceHolder> 
+    <style>
+    .imgdiv
+        {
+          
+            margin: 0px;
+            width: 350px; 
+            margin-top: 0px;
+            background-size: cover; 
+            z-index:-1;
+            height: 70px;
+            background-image: url('../images/fkmlogo.png');
+        }
+        </style>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            // Show or hide the sticky footer button 
+            setTimeout(changeBackground, 15000);
+
+        });
+        var currentBackground = 0;
+
+        var backgrounds = [];
+        backgrounds[0] = '../images/fkmlogo.png';
+        backgrounds[1] = '../images/fenklogo.png';
+        backgrounds[2] = '../images/fkmlogo.png';
+        backgrounds[3] = '../images/fenklogo.png';
+        backgrounds[4] = '../images/fkmlogo.png';
+        backgrounds[5] = '../images/fenklogo.png';
+        backgrounds[6] = '../images/fkmlogo.png';
+        backgrounds[7] = '../images/fenklogo.png';
+
+
+        function changeBackground() {
+
+            currentBackground++;
+
+            if (currentBackground > 7) currentBackground = 0;
+
+            $('#imgdiv').fadeOut(1000, function (event) {
+
+                $('#imgdiv').css({
+                    'background-image': "url('" + backgrounds[currentBackground] + "')"
+                });
+                $('#imgdiv').fadeIn(1000);
+            });
+
+
+            setTimeout(changeBackground, 15000);
+        }
+
+        var divArray = ['usrProf', 'timeClk', 'menuDiv'];
+       
+
+        function displayChk(p1) {
+            if (p1 == 'profPic') {
+                if (document.getElementById("usrProf").style.display == 'none') {
+                    document.getElementById("usrProf").style.display = 'block'
+                }
+                else {
+                    document.getElementById("usrProf").style.display = 'none'
+                }
+            }
+            else if (p1 == 'clockPic') {
+                if (document.getElementById("timeClk").style.display == 'none') {
+                    document.getElementById("timeClk").style.display = 'block'
+                }
+                else {
+                    document.getElementById("timeClk").style.display = 'none'
+                }
+            }
+            else if (p1 == 'menuPic') {
+                if (document.getElementById("menuDiv").style.display == 'none') {
+                    document.getElementById("menuDiv").style.display = 'block'
+                }
+                else {
+                    document.getElementById("menuDiv").style.display = 'block'
+                }
+            }
+        }
+
+
+//        var divArray = ['hd_login1', 'hd_login2', 'hd_login3'];
+//        var picArray = ['usrProf', 'timeClk', 'menuDiv'];
+//        var picArray = ['prfImg', 'clockPic', 'menuPic'];
+        window.addEventListener('mouseup', function (event) {
+            for (var i = 0; i < divArray.length; i++) {
+                var divs = document.getElementById(divArray[i]);
+                if (event.target != divs && event.target.parentNode != divs) {
+                    divs.style.display='none'
+                   
+                }
+            }
+
+
+
+        });
+
+        function upTime() {
+            var d = new Date();
+            document.getElementById("date").innerHTML = d.toLocaleDateString(); ;
+            document.getElementById("time").innerHTML = d.toLocaleTimeString();
+            setTimeout(upTime, 1000);
+        }
+        window.onload = upTime;
+
+//        function search() {
+
+//            var srch = document.getElementById(" = search.ClientID ").value;
+//            var url = 
+//            "window.open('" & url + "', 'popup_window', 'width=300,height=100,left=100,top=100,resizable=yes');"
+//        }
+        function search_Client() {
+            var srch = document.getElementById('search').value;
+
+           /// alert(srch);
+            srch = srch.trim();
+            if (srch == '' && srch.length == 0 ) {
+
+            } else {
+              //  alert(srch.length);
+
+                //var filenm = "../rpts/FGAnote.pdf";
+                filenm = "../Home/Home.aspx?SRCHTXT=" + srch + " "
+                //"../Personnel/Repview1.aspx?fn=" + filenm + "&ft=P"
+               /// alert(filenm);
+                window.open(filenm, '_blank');
+            }
+        }
+
+        function numformat(num) {
+
+            var number1 = num.value;
+            number1 = number1.split(',').join('');
+            var key = parseFloat(number1);
+            key = key.toLocaleString();
+            if (key == "NaN") {
+                num.value = '0.00';
+                alert('Please enter only numbers !!');
+            } else {
+                num.value = key;
+            }
+        }
+
+        function onlynumberKey(fld) {
+
+            var strCheck = '0123456789,.';
+            var newnum = ""
+            var sFieldVal = fld.GetValue();
+
+            for (var i = 0; i < sFieldVal.length; i++) {
+
+                var ch = sFieldVal.charAt(i);
+
+                var c = ch.charCodeAt(0);
+
+                if (c == 13 || c == 8 || c == 9) {
+                    // do nothing
+                }
+                else {
+                    key = String.fromCharCode(c);
+                    if (strCheck.indexOf(key) == -1) {
+                    }
+                    else {
+                        newnum = newnum + ch;
+                    }
+                }
+            }
+
+            fld.SetValue(newnum);
+            return false;
+        }
+
+        function rmvqoutes(txt) {
+            var nwtxt = txt.value;
+            nwtxt = nwtxt.replace(/'/g, "`");
+            nwtxt = nwtxt.replace(/"/g, "``");
+            txt.value = nwtxt;
+        }
+
+    </script>
+</head>
+<body style="font-family:Calibri">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div class="header">
+       <div class="hd_srch">
+       <div class="search_txt">
+       <asp:TextBox ID="search" runat="server" Height="10px" Width="226px" 
+       BorderStyle="None" ForeColor="#747679" Font-Italic="true" BackColor="#F2F2F2">
+       </asp:TextBox>
+       <asp:Button ID="searchBtn" runat="server" CssClass="search_btn" BorderStyle="None" OnClientClick="search_Client();" />
+       </div>
+       <div id="hd_login1" class="hd_login">
+       <div id="profPic" onclick="return displayChk(this.id);">
+       <asp:Image runat="server" ID="user" ImageUrl="~/Images/user1.png" Width="23px" Height="23px" />
+       </div>
+       <div id="usrProf" class="userProf">
+            <div class="triangle"></div>
+                <div class="prfImg">
+                    <asp:Image runat="server" ID="Image2" ImageUrl="~/Images/user1.png" Width="100px" Height="100px" />
+                </div>
+                <div class="userWelcome">
+               <p>USER :  
+               <asp:Label ID="USER_NAME" runat="server" ></asp:Label>
+               </p>
+                <p>DESIGNATION : 
+               <asp:Label ID="DESIGNATION"   runat="server" ></asp:Label></p>
+                <p>EMPLOYEE ID : 
+               <asp:Label ID="EMPLOYEE_ID"  runat="server" ></asp:Label></p>
+                </div>
+                <div class="logout">
+                <div class="logoutbtn">
+                <asp:LinkButton ID="btnLogout" runat="server" Font-Names="Tahoma" Font-Underline="false" Font-Bold="true"
+                        Font-Size="11pt" ForeColor="#0E3B85"  OnClick="btnLogout_Click" >LOG OUT</asp:LinkButton>
+                </div>
+                
+                </div>
+             </div>
+       </div>
+        
+       <div id="hd_login2" class="hd_login">
+       <div id="clockPic" onclick="return displayChk(this.id);">
+       <asp:Image runat="server" ID="Image1" ImageUrl="~/Images/clock.png" Width="23px" Height="23px" />
+       </div>
+       <div id="timeClk" class="userProf">
+            <div class="triangle"></div>
+                <div style="float:left;padding-right:5px; padding-bottom:5px;">
+                    <asp:Image runat="server" ID="Image3" ImageUrl="~/Images/clock.png" Width="70px" Height="70px" />
+                </div>
+                <div class="userWelcome">
+                <p>DATE : <span id="date"></span></p>
+                <p>TIME : <span id="time"></span></p>
+               
+                </div>
+                
+             </div>
+       </div>
+       </div>
+       
+      
+      <div id="imgdiv" runat="server" class="imgdiv">
+         </div>
+       <%--<div class="hd_title">
+                 </div>--%>
+    </div>
+    <div class="hd_bot">
+        <div class="hd_bot_rit"> 
+            <div id="hd_login3" style="margin-left:25px; width:30px;">
+            <div id="menuPic" onmouseover="return displayChk(this.id);" onclick="return displayChk(this.id);" >
+            <img alt="menu" src="../Images/menuds.png" width="50px" height="50px" />
+            </div>
+            <div id="menuDiv" class="menuMain">
+            <div class="triangle"></div>
+             
+              
+        <asp:Menu ID="NavigationMenu" runat="server"    Orientation="Vertical" DynamicMenuStyle-Height="30px" DynamicMenuStyle-CssClass="nav_Menu"
+        Border-BorderColor="White" BackColor="white" DynamicMenuItemStyle-BackColor="white" DynamicMenuItemStyle-Height="25px" 
+        DynamicMenuItemStyle-CssClass="sub_Menu"> 
+                <Items>
+               
+                <asp:MenuItem NavigateUrl="~/Home/HOME.aspx" Text="SEARCH" />
+                <asp:MenuItem NavigateUrl="" Text="INVESTMENT"> 
+                    <asp:MenuItem NavigateUrl="~/Invest/INVEST_EDIT.aspx" Text="INVESTMENT INFORMATION" /> 
+                    <asp:MenuItem NavigateUrl="~/Invest/INV_TRX_EDIT.aspx" Text="INVESTMENT TRANSACTION" />
+                    <asp:MenuItem NavigateUrl="~/Invest/INV_TRX1_EDIT.aspx" Text="JADE INVESTMENT TRANSACTIONS" /> 
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="" Text="NAV & LIQUIDATED">
+                    <asp:MenuItem NavigateUrl="~/Invest/NAV_DTL_EDIT.aspx" Text="INVESTMENT NAV DETAILS" /> 
+                    <asp:MenuItem NavigateUrl="~/Invest/NAVRPT.aspx" Text="NAV REPORT" /> 
+                    <asp:MenuItem NavigateUrl="~/Invest/LQD_DTL_EDIT.aspx" Text="LIQUIDATED INVESTMENT DETAILS" /> 
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="" Text="INVOICE">
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_MTNC.aspx?INCCD=CAP" Text="CAPITAL CALL" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_MTNC.aspx?INCCD=EXP" Text="EXPENSE" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_MTNC.aspx?INCCD=INC" Text="INCOME" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_MTNC.aspx?INCCD=RDM" Text="REDEMPTION" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_MTNC.aspx?INCCD=DST" Text="DISTRIBUTION" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/INVOICE_LIST.aspx" Text="INVOICE LIST" />
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="" Text="TRANSACTION">
+                   <asp:MenuItem NavigateUrl="~/Invoice/BANK_MTNC.aspx" Text="BANK MAINTENANCE" />
+                     <asp:MenuItem NavigateUrl="~/Invoice/BANK_TRX.aspx?INCCD=HOLD" Text="HOLDING COMPANY" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/BANK_TRX.aspx?INCCD=BANK" Text="BANK BALANCE" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/PETTY_TRX.aspx" Text="PETTY CASH" />
+                    <asp:MenuItem NavigateUrl="~/Invoice/BANK_TRX_LIST.aspx" Text="BANK TRX LIST" />
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="" Text="TOOLS">
+                      <asp:MenuItem NavigateUrl="~/Tools/CURR_CONV.aspx" Text="CURRENCY CONVERTER" />
+                    <asp:MenuItem NavigateUrl="~/Tools/REF_EDIT.aspx" Text=" REFERENCE MAINTENANCE" />
+                    <asp:MenuItem NavigateUrl="~/Tools/DOC_MTNC.aspx" Text="DOCUMENTS MAINTENANCE" />
+                        <asp:MenuItem NavigateUrl="~/Tools/SAFEV_EDIT.aspx" Text="SAFE VAULT" />
+                    <%--<asp:MenuItem NavigateUrl="" Text="ADMIN">--%>
+                        <asp:MenuItem NavigateUrl="~/Tools/USER_MTNC.aspx" Text="REGISTER USER" />
+                        <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" Text="CHANGE PASSWORD" /> 
+                 <%--       <asp:MenuItem NavigateUrl="~/Tools/MENU_MTNC.aspx" Text="USER MENU MTNC"  /> --%>
+                    <asp:MenuItem NavigateUrl="~/Tools/JOB_CMS_EDIT.aspx" Text="JOB CONTROL" />
+                    <%--</asp:MenuItem>--%>
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Home/About.aspx" Text="ABOUT" />
+                
+            </Items>
+        </asp:Menu>
+             </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_scrl"> 
+            
+            <asp:ContentPlaceHolder ID="ContenHeader" runat="server" />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+    </div>
+    <div class="footer">
+    
+            <marquee scrollamount="2">
+                    <%--<marquee scrollamount="5" width="40">&lt;&lt;&lt;</marquee>--%>
+                    <asp:Label ID="LBL_QUOTE" runat="server" ForeColor="SteelBlue" Font-Bold="true"
+                      Font-Size="Medium" >
+                     </asp:Label>
+                    <%-- <marquee scrollamount="5" direction="right" width="40">&gt;&gt;&gt;</marquee>--%></marquee>
+    </div>
+    </form>
+</body>
+</html>

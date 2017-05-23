@@ -1,0 +1,210 @@
+﻿body 
+{
+    margin:0px;
+}
+.header
+{
+    width:100%;
+    height:170px;
+    background: -webkit-linear-gradient(#0B418E,#229BEB);
+    background: -o-linear-gradient(#0B418E,#229BEB);
+    background: -moz-linear-gradient(#0B418E,#229BEB);
+    background: linear-gradient(#969696,#FFFFFF);
+    min-width:1300px;
+   
+}
+.hd_bot
+{
+    padding-top:0px;
+    width:100%;
+    height:30px;
+    background-color:#969696;
+    min-width:1300px;
+}
+.hd_srch
+{
+    float:right;
+    width:100%;
+    height:30px;
+    
+}
+.search_txt
+{
+    margin-top:5px;
+    margin-right:5px;
+    float:right;
+    height:23px;
+    background-color:#F2F2F2;
+    border:thin solid #747679;
+    
+}
+.search_btn
+{
+    
+    height:23px;
+    width:23px;
+    float:right;
+    background-image:url("../Images/search_btn.png");
+    background-size: contain;
+    border-left:thin solid #D2E0EF;
+}
+.search_txt:hover
+{
+    border:thin solid #229BEB;
+}
+.hd_login
+{
+     background-color: #229beb;
+    border: thin solid #747679;
+    float: right;
+    height: 23px;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 23px;
+    border-radius:5px;
+    background-size: contain;
+    direction:rtl;
+}
+.hd_bot_rit
+{
+    
+    margin-right:5px;
+    height:100%;
+}
+.hd_title
+{
+    clear:both;
+    height:150px;
+    width:500px;
+    margin-top:30px;
+    background-image:url("../Images/fkmlogo.png");
+    background-size: contain;
+    background-repeat:no-repeat;
+    margin-left:20px;
+}
+
+
+        .imgdiv
+        {
+          
+            margin: 0px;
+            width: 350px; 
+            margin-top: 0px;
+            background-size: cover; 
+            z-index:-1;
+            height: 70px;
+            background-image: url('../images/fkmlogo.png');
+        }
+        
+.content
+{
+   
+    width:1300px;
+    height:500px;
+    margin: 30px auto 0;
+    border:thin solid #229BEB;
+    border-radius:10px;
+    padding:5px;
+}
+.content_scrl
+{
+    width:100%;
+    height:100%;
+    padding-right:1px;
+    overflow:scroll;
+}
+.footer
+{
+    position:fixed;
+     bottom:0px;
+    width:100%;
+    height:20px;
+    background-color:#969696;
+}
+
+
+
+
+
+ .userProf
+        {
+            background-color: White;
+            border: thin solid #747679;
+            border-radius: 5px;
+            float: left;
+            margin-top: 10px;
+            padding: 5px;
+            position: absolute;
+            height:auto;
+            -moz-box-shadow:    0 0 10px rgba(0,0,0,0.6);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+             box-shadow:        0 0 10px rgba(0,0,0,0.6);
+             display:none;
+           
+        }
+        .profPic
+        {
+            background-color: #7da5e1;
+            border: thin solid black;
+            border-radius: 30px;
+            float: right;
+            height: 35px;
+            overflow: hidden;
+            width: 35px;
+            cursor:pointer;
+        }
+        .triangle 
+        {
+            border-bottom: 15px solid white;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            height: 0;
+            margin-top: -15px;
+            width: 0;
+        }
+        
+         .userWelcome
+        {
+          
+            text-align: left;
+            float:right;
+            direction:ltr;
+            padding-left:5px;
+             color:#747679;
+            
+        }
+        
+        .logout
+        {
+            clear:both;
+            text-align:right;
+            border-top:thin solid #747679;
+           
+        }
+        .prfImg
+        {
+            float:left;
+            padding-right:5px;
+             padding-bottom:5px;
+             border-radius: 55px; 
+             background: contain;
+             border:thin solid #747679;
+             background:contain;
+        }
+        
+        .menuMain
+        {
+             background-color: White;
+            border: thin solid #747679;
+            border-radius: 5px;
+            float: left;
+            margin-top: 10px;
+            padding: 5px;
+            position: absolute;
+            height:auto;
+            -moz-box-shadow:    0 0 10px rgba(0,0,0,0.6);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+             box-shadow:        0 0 10px rgba(0,0,0,0.6);
+             display:none;
+             margin-left:10px;
+        }

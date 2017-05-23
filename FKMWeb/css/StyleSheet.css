@@ -1,0 +1,252 @@
+﻿body 
+{
+    margin:0px;
+}
+.header
+{
+    width:100%;
+    height:70px;
+    background: -webkit-linear-gradient(#0B418E,#229BEB);
+    background: -o-linear-gradient(#0B418E,#229BEB);
+    background: -moz-linear-gradient(#0B418E,#229BEB);
+    background: linear-gradient(#969696,#FFFFFF);
+    min-width:1300px;
+   
+}
+.hd_bot
+{
+    padding-top:0px;
+    width:100%;
+    height:30px;
+    background-color:#969696;
+    min-width:1300px;
+}
+.hd_srch
+{
+    float:right;
+    width:100%;
+    height:30px;
+    
+}
+.search_txt
+{
+    margin-top:5px;
+    margin-right:5px;
+    float:right;
+    height:23px;
+    background-color:#F2F2F2;
+    border:thin solid #747679;
+    
+}
+.search_btn
+{
+    
+    height:23px;
+    width:23px;
+    float:right;
+    background-image:url("../Images/search_btn.png");
+    background-size: contain;
+    border-left:thin solid #D2E0EF;
+}
+.search_txt:hover
+{
+    border:thin solid #229BEB;
+}
+.hd_login
+{
+     background-color: #229beb;
+    border: thin solid #747679;
+    float: right;
+    height: 23px;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 23px;
+    border-radius:5px;
+    background-size: contain;
+    direction:rtl;
+}
+.hd_bot_rit
+{
+    
+    margin-right:5px;
+    height:100%;
+}
+.hd_title
+{
+    clear:both;
+    height:100px;
+    width:500px;
+    margin-top:30px;
+    background-image:url("../Images/fenklogo.png");
+    background-size: contain;
+    background-repeat:no-repeat;
+    margin-left:20px;
+}
+
+        
+          
+.content
+{
+   
+    width:98%;
+    height:100%;  
+    margin: 20px auto 0; 
+    padding:5px;
+    padding-bottom:20px;
+    z-index:0;
+}   
+.content_old
+{
+   
+    width:1300px;
+    height:600px;
+    margin: 30px auto 0;
+    border:thin solid #229BEB;
+    border-radius:10px;
+    padding:5px;
+    overflow:scroll;
+    padding-bottom:20px:
+}
+.content_scrl
+{
+    width:100%;
+    height:100%;
+    padding-right:0px;    
+    overflow-x: auto;    
+}
+.footer
+{
+    position:fixed;
+     bottom:0px;
+    width:100%;
+    height:20px;
+    background: -webkit-linear-gradient(#229BEB,#0B418E);
+    background: -o-linear-gradient(#229BEB,#0B418E);
+    background: -moz-linear-gradient(#229BEB,#0B418E);
+    background: linear-gradient(#FFFFFF,#969696);
+}
+
+
+
+
+
+ .userProf
+        {
+            background-color: White;
+            border: thin solid #747679;
+            border-radius: 5px;
+            float: left;
+            margin-top: 10px;
+            padding: 5px;
+            position: absolute;
+            height:auto;
+            -moz-box-shadow:    0 0 10px rgba(0,0,0,0.6);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+             box-shadow:        0 0 10px rgba(0,0,0,0.6);
+             display:none;
+           
+        }
+        .profPic
+        {
+            background-color: #7da5e1;
+            border: thin solid black;
+            border-radius: 30px;
+            float: right;
+            height: 35px;
+            overflow: hidden;
+            width: 35px;
+            cursor:pointer;
+        }
+        .triangle 
+        {
+            border-bottom: 15px solid white;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            height: 0;
+            margin-top: -15px;
+            width: 0;
+        }
+        
+         .userWelcome
+        {
+          
+            text-align: left;
+            float:right;
+            direction:ltr;
+            padding-left:5px;
+             color:#747679;
+            
+        }
+        
+        .logout
+        {
+            clear:both;
+            text-align:right;
+            border-top:thin solid #747679;
+           
+        }
+        .prfImg
+        {
+            float:left;
+            padding-right:5px;
+             padding-bottom:5px;
+             border-radius: 55px; 
+             background: contain;
+             border:thin solid #747679;
+             background:contain;
+        }
+        
+        .menuMain
+        {
+             background-color: White;
+            border: thin solid #747679;
+            border-radius: 5px;
+            float: left;
+            margin-top: 10px;
+            padding: 5px;
+            position: absolute;
+            height:auto;
+            -moz-box-shadow:    0 0 10px rgba(0,0,0,0.6);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+             box-shadow:        0 0 10px rgba(0,0,0,0.6);
+             display:none;
+             margin-left:10px;
+             z-index:1;
+            
+        }
+        .sub_Menu
+        {
+        
+    margin-left: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+            -moz-box-shadow:    0 0 10px rgba(0,0,0,0.6);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+             box-shadow:        0 0 10px rgba(0,0,0,0.6);
+        }
+        nav_Menu
+        {
+        }
+        input[type=text], textarea {
+          -webkit-transition: all 0.30s ease-in-out;
+          -moz-transition: all 0.30s ease-in-out;
+          -ms-transition: all 0.30s ease-in-out;
+          -o-transition: all 0.30s ease-in-out;
+          outline: none;
+          padding: 3px 0px 3px 3px;
+          margin: 5px 1px 3px 0px;
+          border: 1px solid #DDDDDD;
+        }
+ 
+        input[type=text]:focus, textarea:focus {
+          box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+          padding: 3px 0px 3px 3px;
+          margin: 5px 1px 3px 0px;
+          border: 1px solid rgba(81, 203, 238, 1);
+        }
+        .srch_txt
+        {
+            margin-top:0px;
+        }
+        
+      
