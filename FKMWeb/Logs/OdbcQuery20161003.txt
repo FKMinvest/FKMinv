@@ -1,0 +1,1 @@
+03/10/2016 23:16:46 ==> SELECT * from PSWD_INFO where PSWD_USERID = 'DEV_R' and PSWD_PASSWORD = 'qwerty123' and  PSWD_STATUS IN ('A','S')
